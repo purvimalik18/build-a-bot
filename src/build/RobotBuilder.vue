@@ -77,6 +77,10 @@ function getNextValidIndex(index, length) {
 
 export default {
   name: 'RobotBuilder',
+  // example of lifecycle hooks
+  created() {
+    console.log('created component');
+  },
   data() {
     return {
       availableParts,
@@ -185,15 +189,17 @@ export default {
 </script>
 <!-- eslint-disable linebreak-style -->
 
-<style scoped>
+<style scoped lang="scss">
     .part {
         position: relative;
         width:165px;
         height:165px;
         border: 3px solid #aaa;
       }
-      .part img {
-        width:165px;
+      .part{
+        img {
+          width:165px;
+        }
       }
       .top-row {
         display:flex;
