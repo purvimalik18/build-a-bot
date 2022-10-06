@@ -4,7 +4,9 @@
   <button class="add-to-cart" @click="addToCart()">Add to Cart</button>
     <div class="top-row">
       <!-- binding inline class -->
-        <div class="top part" :style="headBorderStyle">
+        <!-- <div class="top part" :style="headBorderStyle"> -->
+          <!-- binding externally class -->
+        <div :class="[saleBorderClass, 'top', 'part']">
           <div class="robot-name">
             {{selectedRobot.head.title}}
             <span class="sale" v-if="selectedRobot.head.onSale">Sale!</span>
@@ -88,6 +90,9 @@ export default {
   },
 
   computed: {
+    saleBorderClass() {
+      return this.selectedRobot.head.onSale ? 'sale-border' : '';
+    },
     headBorderStyle() {
       return { border: this.selectedRobot.head.onSale ? '3px solid red' : '3px solid #aaa' };
     },
@@ -301,5 +306,9 @@ export default {
 
       .cost{
         text-align: right;
+      }
+
+      .sale-border{
+        border: 3px solid red;
       }
 </style>
