@@ -64,6 +64,7 @@
 
 <script>
 import availableParts from '../data/parts';
+import createdHookMixin from './created-hook-mixin';
 
 function getPreviousValidIndex(index, length) {
   const depracatedIndex = index - 1;
@@ -78,9 +79,9 @@ function getNextValidIndex(index, length) {
 export default {
   name: 'RobotBuilder',
   // example of lifecycle hooks
-  created() {
-    console.log('created component');
-  },
+  // created() {
+  //   console.log('created component');
+  // },
   data() {
     return {
       availableParts,
@@ -93,6 +94,7 @@ export default {
     };
   },
 
+  mixins: [createdHookMixin],
   computed: {
     saleBorderClass() {
       return this.selectedRobot.head.onSale ? 'sale-border' : '';
