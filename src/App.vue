@@ -1,3 +1,4 @@
+<!-- eslint-disable import/no-unresolved -->
 <template>
   <div id="app">
     <header>
@@ -11,20 +12,22 @@
       </nav>
     </header>
     <main>
-      <RobotBuilder />
+      <!-- <RobotBuilder /> -->
+      <Search />
     </main>
   </div>
 </template>
 
 <script>
 // import HomePage from './home/HomePage.vue';
-import RobotBuilder from './build/RobotBuilder.vue';
+import Search from './search/Search.vue';
 
 export default {
   name: 'App',
   components: {
     // HomePage,
-    RobotBuilder,
+    // RobotBuilder,
+    Search,
   },
 };
 </script>
