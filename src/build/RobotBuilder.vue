@@ -12,15 +12,15 @@
             <span class="sale" v-if="selectedRobot.head.onSale">Sale!</span>
           </div>
         </div> -->
-        <PartSelector/>
+        <PartSelector :parts="availableParts.heads" position="top"/>
     </div>
     <div class="middle-row">
-      <PartSelector/>
-      <PartSelector/>
-      <PartSelector/>
+      <PartSelector :parts="availableParts.arms" position="left"/>
+      <PartSelector :parts="availableParts.torsos" position="center"/>
+      <PartSelector :parts="availableParts.arms" position="right"/>
     </div>
     <div class="bottom-row">
-        <PartSelector/>
+        <PartSelector :parts="availableParts.bases" position="bottom"/>
     </div>
     <div>
       <h1>Cart</h1>
@@ -32,7 +32,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(robot, index) in cart" :key = "index">
+          <tr v-for="(robot, index) in cart" :key="index">
             <td>{{robot.head.title}}</td>
             <td class="cost">{{robot.cost}}</td>
           </tr>
