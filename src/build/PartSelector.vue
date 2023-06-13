@@ -1,6 +1,7 @@
 <template>
     <div class="part" :class="position">
-      <img :src="selectedPart.src" alt="" title="arm"/>
+      <!-- eslint-disable-next-line vuejs-accessibility/click-events-have-key-events -->
+      <img :src="selectedPart.src" alt="" title="arm" @click="imageClicked()"/>
       <button @click="selectPreviousPart()" class="prev-selector"></button>
       <button @click="selectNextPart()" class="next-selector"></button>
       <span class="sale" v-show="selectedPart.onSale">Sale!</span>
@@ -20,6 +21,7 @@ function getNextValidIndex(index, length) {
 }
 
 export default {
+  name: 'PartSelector',
   props: {
     parts: {
       type: Array,
@@ -34,7 +36,7 @@ export default {
     },
   },
   data() {
-    return { selectedPartIndex: 0 };
+    return { selectedPartIndex: 0, showPartInfo: false };
   },
   computed: {
     selectedPart() {
@@ -62,6 +64,9 @@ export default {
         this.selectedPartIndex,
         this.parts.length,
       );
+    },
+    imageClicked() {
+      this.showPartInfo = !this.showPartInfo;
     },
 
   },

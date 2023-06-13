@@ -30,6 +30,11 @@ export default {
     RobotBuilder,
     // Search,
   },
+  methods: {
+    changeUserName() {
+      this.user.username = 'Fred';
+    },
+  },
 };
 </script>
 
